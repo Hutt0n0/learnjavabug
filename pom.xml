@@ -28,6 +28,7 @@
     <module>nexus</module>
     <module>apache-poi</module>
     <module>java-compile</module>
+      <module>webshell</module>
   </modules>
 
   <name>learn-java-bug</name>

